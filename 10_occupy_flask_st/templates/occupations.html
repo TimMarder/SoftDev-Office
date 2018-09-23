@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+  <style>
+    p {
+      margin-left: 250px;
+      margin-right: 250px;
+    }
+  </style>
+
+  <head>
+
+    <title> {{ heading }} </title>
+
+    <center>
+
+      <h1> Occupations in the United States </h1>
+
+      <p>
+        This page contains a table below which has data about the different
+        occupations in the United States. The left column has the occupations,
+        and the middle column has the percentage of the U.S. workforce it
+        compromises. The right column has a hyperlink that will send you to a
+        website that will give you the information you need to get started in
+        that particular field. A random occupation is shown in the top row with
+        its respective percentage.
+        <br>
+        <br>
+        Click <a href = "/">here</a> to go back to the home page
+      </p>
+
+    </center>
+
+  </head>
+
+  <body>
+
+    <style>
+    table, th, td {
+    border: 1px solid black;
+    border-spacing: 0px;
+    }
+    </style>
+
+    <center>
+
+    <table style = "width:60%">
+      <tr>
+        <th>Occupation</th>
+        <th>Percentage</th>
+        <th>Get Started Link</th>
+      </tr>
+
+      <tr>
+        <td><i>Random Job: {{ randomJob }}</i></td>
+        <td><i>{{ jobs[randomJob] }}%</i></td>
+        <td><i><a href = "{{ links[randomJob] }}">{{ links[randomJob] }}</a></i></td>
+      </tr>
+
+      {% for job in jobs %}
+      <tr>
+        <td>{{ job }}</td>
+        <td>{{ jobs[job] }}%</td>
+        <td><a href = "{{ links[job] }}">{{ links[job] }}</a></td>
+      </tr>
+      {% endfor %}
+
+    </table>
+    
+    </center>
+
+  </body>
+
+</html>
