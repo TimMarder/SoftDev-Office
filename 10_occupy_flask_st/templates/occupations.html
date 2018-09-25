@@ -34,7 +34,11 @@
   </head>
 
   <body>
-
+  <center>
+      <h3>Random Job: {{ randomJob }}</h3>
+      <h3>Percentage: {{ jobs[randomJob] }}%</h3>
+      <h3>Link: <a href = "{{ links[randomJob] }}">{{ links[randomJob] }}</a></h3></center>
+      
     <style>
     table, th, td {
     border: 1px solid black;
@@ -49,12 +53,6 @@
         <th>Occupation</th>
         <th>Percentage</th>
         <th>Get Started Link</th>
-      </tr>
-
-      <tr>
-        <td><i>Random Job: {{ randomJob }}</i></td>
-        <td><i>{{ jobs[randomJob] }}%</i></td>
-        <td><i><a href = "{{ links[randomJob] }}">{{ links[randomJob] }}</a></i></td>
       </tr>
 
       {% for job in jobs %}

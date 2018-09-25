@@ -7,53 +7,52 @@ from flask import Flask, render_template
 from csv import reader
 from random import randint
 
-app = Flask(__name__) #create instance of class Flask
+#create instance of class Flask
+app = Flask(__name__) 
 
-@app.route("/")       #assign fxn to route
-def hello_world():
-    return "<title> Team ProteinBar's Website </title> \
-    <center><h1> Team ProteinBar // SoftDev1 pd06</h1> \
-    <h3>Tim Marder & Tianrun Liu</h3> \
-    Yo hablo queso! <br> \
-    Welcome to our website! <br> \
-    <b>Click <a href = '/occupations'>here</a> for occupations!</b></center>"
+
+#assign fxn to route
+@app.route('/')
+def home():
+    return render_template('home.html');
 
 #------------------------------------------------------------------------------
 
 jobs = {}
 
-def getData(): #pulls data from the csv file and adds into dictionary
+#pulls the data from the csv file and adds into dictionary
+def getData():
     file = open('data/occupations.csv') #opens the csv
     raw = reader(file) #reads the csv
 
     next(file) #skips the first line
 
     for row in raw:
-        jobs[row[0]] = float(row[1]) #sets the occupation equal to the
-                                     #percentage (float in this case)
-
-    del jobs['Total'] #deletes the last line
+        jobs[row[0]] = float(row[1]) #sets the occupation equal to the percentage (float in this case)
 
     file.close() #close the file when finished
 
-links = {} #separate dictionary for the links for each occupation
 
-def getLinks(): #pulls data from the csv file and adds into dictionary
-    file = open('data/occupations.csv') #opens the csv
-    raw = reader(file) #reads the csv
+#separate dictionary for the links for each occupation
+links = {}
 
-    next(file) #skips the first line
+def getLinks():
+    file = open('data/occupations.csv')
+    raw = reader(file) 
+
+    next(file)
 
     for row in raw:
         links[row[0]] = str(row[2])
 
-    del links['Total'] #deletes the last line
 
-    file.close() #close the file when finished
+    file.close()
 
-def theChosenOne(): #chooses an occupation based on weight of occupations
-    theOne = randint(1 , 998) #chooses random integer from 1 to 998
-    ctr = 0 #our counter variable
+
+#chooses an occupation based on weight of occupations
+def theChosenOne():
+    theOne = randint(1 , 998)
+    ctr = 0                        #counter variable
 
     for x in jobs:
         if theOne < (10 * jobs[x] + ctr):
@@ -62,8 +61,9 @@ def theChosenOne(): #chooses an occupation based on weight of occupations
         ctr += 10 * jobs[x]
 
 @app.route("/occupations")
+
+#print links
 def occupations():
-    #print(links) #for testing
     getData()
     getLinks()
     return render_template( "occupations.html",
