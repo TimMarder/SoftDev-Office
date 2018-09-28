@@ -1,7 +1,7 @@
 # Tim Marder
 # SoftDev1 pd06
-# K#00 -- Bla Bla Bla
-# yyyy-mm-dd
+# K#13 -- Echo Echo Echo
+# 2018-09-28
 
 from flask import Flask, render_template, request
 app = Flask(__name__) #create instance of class Flask
