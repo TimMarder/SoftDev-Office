@@ -10,15 +10,15 @@ app = Flask(__name__) #create instance of class Flask
 def hello_world():
     return render_template("home.html")
 
-@app.route("/auth")
+@app.route("/auth", methods = ["GET", "POST"])
 def authenticate():
     print(app)
     print(request)
     print(request.args)
     print(request.headers)
     return render_template("auth.html",
-                            first = request.args['first'],
-                            last = request.args['last'],
+                            first = request.form['first'],
+                            last = request.form['last'],
                             request = request.method)
 
 if __name__ == "__main__":
