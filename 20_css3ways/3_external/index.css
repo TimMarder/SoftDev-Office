@@ -1,0 +1,40 @@
+body {
+  background-color:#696969;
+  font-family: sans-serif;
+}
+h1 {
+  background-color:lightgray;
+  color:white;
+  text-align:center;
+}
+.navbar {
+  float:left;
+  padding-right:150px;
+}
+ul {
+    padding-left:0px;
+    list-style-type:none;
+    font-weight:bold;
+}
+a {
+    text-align:left;
+    text-decoration:none;
+    color:white;
+}
+.content {
+      float: left;
+      width: 75%;
+}
+h2 {
+    font-size:30px;
+    text-align:left;
+}
+.copyright {
+    font-size:20px;
+    padding: 10px;
+    clear:both;
+    background-color:#2F4F4F;
+    color:#696969;
+    text-align:right;
+}
+ 
