@@ -1,0 +1,27 @@
+<!--
+# Tim Marder
+# SoftDev1 pd06
+# K#26 -- Getting More REST
+# 2018-11-16
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Football Data API</title>
+  </head>
+
+  <body>
+      <center>
+          <h3> Football Data API </h3>
+          {% for team in teams %}
+          Team name: {{ team['name'] }} <br>
+          Website: {{ team['website'] }} <br>
+          Address: {{ team['address'] }} <br>
+          Phone #: {{ team['phone'] }} <br>
+          =============================================== <br>
+          {% endfor %}
+      </center>
+  </body>
+</html>
