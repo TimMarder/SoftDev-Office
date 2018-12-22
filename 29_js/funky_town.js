@@ -52,18 +52,24 @@ var randomStudent = () => {
 
 };
 
+
+
+
 var disfib = document.getElementById("fib");
 var disgcd = document.getElementById("gcd");
 var disrandstu = document.getElementById("randstu");
 
+/*
 var fibdis = function() {
 
-    console.log( fibonacci( 20 ) );
+    //console.log( fibonacci( 20 ) );
 
     document.getElementById( "fibP" ).innerHTML = fibonacci( 20 );
 
 };
+*/
 
+/*
 var gcddis = function() {
 
     console.log( gcd( 224383, 1273 ) );
@@ -71,14 +77,27 @@ var gcddis = function() {
     document.getElementById( "gcdP" ).innerHTML = gcd( 224383, 1273 );
 
 };
+*/
 
+/*
 var randstudis = function() {
 
     console.log( randomStudent() );
 
     document.getElementById( "randstuP" ).innerHTML = randomStudent();
 };
+*/
 
-disfib.addEventListener( 'click', fibdis );
-disgcd.addEventListener( 'click', gcddis );
+disfib.addEventListener( 'click',
+    function( fibdis ) {
+        console.log( fibonacci(20) );
+        document.getElementById( "fibP" ).innerHTML = fibonacci( 20 );
+    }
+ );
+disgcd.addEventListener( 'click',
+    function ( gcddis ) {
+        console.log( gcd( 224383, 1273 ) );
+        document.getElementById( "gcdP" ).innerHTML = gcd( 224383, 1273 );
+    }
+);
 disrandstu.addEventListener( 'click', randstudis );
